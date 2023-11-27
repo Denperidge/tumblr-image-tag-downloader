@@ -27,6 +27,7 @@ def setup_cli():
     argparse.add_argument("--blog", "-b", required=True, help="Blog name. Example input: staff")
     argparse.add_argument("--api-key", "-a", "-ak", required=True, help="Tumblr API key")
     argparse.add_argument("--tag", "-t", required=True, help="Tag to download")
+    argparse.add_argument("--output", "-o", default="output.json", help="File to save output to")
     return argparse.parse_args()
 
 def create_request_url(blogname: str, api_key: str, tag: str):
@@ -98,7 +99,7 @@ if __name__ == "__main__":
     for post_object in all_post_objects:
         images += parse_post(post_object)
 
-    save_output_json("output.json", images)
+    save_output_json(args.output, images)
 
 
     print(f"[TTIC] Done!")

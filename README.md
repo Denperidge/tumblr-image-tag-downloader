@@ -18,6 +18,7 @@ Outputs JSON, includes image descriptions if the reblog chain has one.
 wget https://raw.githubusercontent.com/Denperidge/tumblr-tagged-image-collector/main/ttic.py
 python ttic.py --blog blogname --api-key APIKEY --tag tagname
 ```
+Optionally, use `--output` or `-o` to specify a different output filename/location
 
 ### Get an API key
 Go to [https://www.tumblr.com/oauth/register](https://www.tumblr.com/oauth/register)
