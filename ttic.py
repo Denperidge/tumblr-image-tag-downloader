@@ -1,12 +1,12 @@
 """
-Tumblr-Image-Tag-Downloader
+Tumblr-Tagged-Image-Collector
 
 Requirments:
 - Python 3
 - Tumblr API key (https://www.tumblr.com/docs/en/api/v2#what-you-need)
 - This script
 
-Usage: python titd.py -b staff -a APIKEY  
+Usage: python ttic.py -b staff -a APIKEY  
 """
 
 # Imports
@@ -38,7 +38,7 @@ def create_request_url(blogname: str, api_key: str, tag: str):
 
 def get_posts(blogname: str, api_key: str, tag: str):
     request_url = create_request_url(blogname, api_key, tag)
-    print(f"[TITD] Sending request to {request_url}")
+    print(f"[TTIC] Sending request to {request_url}")
     with urlopen(request_url) as req:
         posts = loads(req.read())["response"]["posts"]
     return posts 
@@ -50,7 +50,7 @@ def parse_post(post_object):
     # Get the post with all reblogs to extract the image & image id
     trail: str = post_object["trail"]
 
-    print(f"[TITD] Processing {post_url}")
+    print(f"[TTIC] Processing {post_url}")
 
     post_images = []
 
@@ -84,7 +84,7 @@ def parse_post(post_object):
 
 def save_output_json(filename: str, images: list):
     with open(filename, "w", encoding="UTF-8") as output:
-        print(f"[TITD] Saving output...")
+        print(f"[TTIC] Saving output...")
         dump(images, output)
     
 # Main
@@ -101,4 +101,4 @@ if __name__ == "__main__":
     save_output_json("output.json", images)
 
 
-    print(f"[TITD] Done!")
+    print(f"[TTIC] Done!")
