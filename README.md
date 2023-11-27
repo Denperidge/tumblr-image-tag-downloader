@@ -15,7 +15,7 @@ Outputs JSON, includes image descriptions if the reblog chain has one.
 ## How-to
 ### Usage
 ```bash
-wget https://raw.githubusercontent.com/Denperidge/tumblr-tagged-image-collector/main/ttic.py
+curl -o ttic.py https://raw.githubusercontent.com/Denperidge/tumblr-tagged-image-collector/main/ttic.py
 python ttic.py --blog blogname --api-key APIKEY --tag tagname
 ```
 Optionally, use `--output` or `-o` to specify a different output filename/location
